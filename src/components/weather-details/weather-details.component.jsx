@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
-const WeatherDetails = () => {
+const WeatherDetails = ({temp, humidity, pressure, weatherType, name, speed, country, sunset}) => {
+    const [weatherState, setWeatherState] = useState("");
+    
     return(
         <article className="widget">
             <div className="weatherIcon">
@@ -9,12 +11,12 @@ const WeatherDetails = () => {
 
             <div className="weatherInfo">
                 <div className="temperature">
-                    <span>23.99&deg;</span>
+                    <span>{temp}&deg;</span>
                 </div>
 
                 <div className="description">
-                    <div className="weatherCondition">Sunny</div>
-                    <div className="place">Lima, PE</div>
+                    <div className="weatherCondition">{weatherType}</div>
+                    <div className="place">{name},{country}</div>
                 </div>
             </div>
 
@@ -27,7 +29,7 @@ const WeatherDetails = () => {
                             <i className={"wi wi-sunset"}></i>
                         </p>
                         <p className="extra-info-leftside">
-                            6:30 PM <br />
+                            {sunset} PM <br />
                             Sunset
                         </p>
                     </div>
@@ -37,19 +39,19 @@ const WeatherDetails = () => {
                             <i className={"wi wi-humidity"}></i>
                         </p>
                         <div className="extra-info-leftside">
-                            444 <br/>
+                            {humidity} <br/>
                             Humidity
                         </div>
                     </div>
                 </div>
-                
+
                 <div className="temp-info-minmax">
                     <div className="two-sided-section">
                         <p>
                             <i className={"wi wi-rain"}></i>
                         </p>
                         <div className="extra-info-leftside">
-                            444 <br/>
+                            {pressure} <br/>
                             Presure
                         </div>
                     </div>
@@ -59,7 +61,7 @@ const WeatherDetails = () => {
                             <i className={"wi wi-strong-wind"}></i>
                         </p>
                         <div className="extra-info-leftside">
-                            444 <br/>
+                            {speed} <br/>
                             Speed
                         </div>
                     </div>
