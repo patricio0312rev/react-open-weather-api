@@ -49,9 +49,9 @@ const SearchMain = () => {
                         value={city} 
                         onChange={(e) => setCityName(e.target.value)}
                     />
+                    <div className="searchButton" onClick={getWeatherInfo}>Search</div>
                 </div>
 
-                <div className="searchButton" onClick={getWeatherInfo}>Search</div>
             </div>
                 
             <WeatherDetails {...weatherInfo}/>
